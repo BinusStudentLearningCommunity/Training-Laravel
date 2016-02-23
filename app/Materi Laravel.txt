@@ -1,0 +1,68 @@
+CREATE PROJECT FOLDER
+composer create-project laravel/laravel NamaFolderProjek 4.2 --prefer-dist
+
+LARAVEL
+konsep MVC: 
+model 
+view 
+controller
+route.php
+
+buat DB
+phpmyadmin
+
+Buat Database di phpmyadmin
+-nama table harus = plural
+-PK harus 'id'
+-harus ada tambahan 2 key
+	created_at TIMESTAMP
+	updated_at TIMESTAMP
+-setiap nama kolom tidak plural
+
+1. konfigurasi koneksi DB
+app/config/database.php 
+bagian mysql line 55
+'database'  => 'forge' ganti jadi 'database'  => 'latihanbslc'
+username => 'root'
+
+app/config/app.php
+debug jadikan 'true'
+
+udah bisa buka di localhost
+
+2. Setting routes
+route: untuk mengendalikan alamat web
+Route::get('/', array('as' => 'home.index', 'uses' => 'HomeController@index') );
+Route::get('/', array('as' => 'namaRoute', 'uses' => 'FungsiController') );
+
+Buka Controller
+namaController : singular
+class namaController [= namaFileController case sensitive] extends BaseController
+{
+	public function index()
+	{ return 'Hello';
+	}
+}
+
+MODEL
+konek project dengan database
+db <--> M <--> C -> V
+-nama model = singular
+models/
+bikin file model.php
+
+CONTROLLER
+bikin ItemController.php
+class ItemController extends BaseController
+fungsi2:
+-index 	= listing data
+-create = halaman posting data
+-doPost = simpan ke DB
+-update = halaman edit data
+-edit	= edit data pada database
+-delete = halaman hapus data
+-destroy= hapus data pada database
+-tambahanFungsiLainnya
+
+VIEW
+isi html tampilan project
